@@ -1,1 +1,3 @@
-# Project1
+# knote-java
+
+Simple Spring Boot app to take notes
