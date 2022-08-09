@@ -61,7 +61,7 @@ docker ps
 
 ## Now to access the application from the browser, we can use:
 ### * ipaddress:port if using a server
-[image](https://user-images.githubusercontent.com/107158398/183541436-3216ab13-6b02-4a87-8b4d-6780505b381e.png)
+![image](https://user-images.githubusercontent.com/107158398/183541436-3216ab13-6b02-4a87-8b4d-6780505b381e.png)
 
 ### * localhost:port number of using mac book
 ![image](https://user-images.githubusercontent.com/107158398/183541521-180538e3-efa3-47ba-b27e-69cadbc27cfb.png)
