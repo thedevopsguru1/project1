@@ -1,0 +1,14 @@
+version: "3"
+services:
+   webapp:
+     image: knote
+     environment:
+       - MONGO_URL=mongodb://mongo:27017/dev
+     depends_on:
+       - mongo
+     ports:
+       - "8080:8080"
+   mongo:
+     image: mongo
+     ports:
+       - "27017:27017"
