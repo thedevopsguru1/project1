@@ -35,10 +35,19 @@ services:
 #### - install java 
 #### - Install maven
 #### - we run the commands:
-#### - mvn clean
-#### - mvn package
-#### - docker build -t knote .
+```
+mvn clean
+```
+```
+mvn package
+```
+```
+docker build -t knote .
+```
 #### - docker images ( to make sure we have the image called knote)
+```
+docker images
+```
 #### - we run this command:
 ```
 docker compose up -d
