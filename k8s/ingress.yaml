@@ -17,3 +17,13 @@ spec:
             name: my-app-service
             port:
               number: 80
+   - host: app2.yannickeboo.com
+    http:
+      paths:
+      - path: /app2
+        pathType: Prefix
+        backend:
+          service:
+            name: my-app-service
+            port:
+              number: 80
