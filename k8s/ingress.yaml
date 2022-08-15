@@ -10,7 +10,7 @@ spec:
   - host: app.yannickeboo.com
     http:
       paths:
-      - path: /app
+      - path: /
         pathType: Prefix
         backend:
           service:
