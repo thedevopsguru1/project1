@@ -13,4 +13,6 @@ https://github.com/devopstrainingschool/Jenkins-installation-steps
 ## II- CI
 ### When the developer pushes the code, jenkins will pull that code.
 ### Jenkins compile the code , and test it with Sonarqube, then build and push the docker image to the artifactory(docker hub).
-###  
+## In order to archive this:
+#### - we need to identify the type of application. 
+#### - Build a Jenkinfile
