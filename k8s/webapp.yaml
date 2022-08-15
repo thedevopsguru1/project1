@@ -21,7 +21,7 @@ spec:
             - containerPort: 8080
           env:
             - name: MONGO_URL
-              value: mongodb://my-db:27017/dev
+              value: mongodb://my-db-service:27017/dev
           command: 
           - /bin/bash
           - -c 
