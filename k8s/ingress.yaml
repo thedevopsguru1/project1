@@ -7,10 +7,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: app.yannickeboo.com
+  - host: yannickeboo.com
     http:
       paths:
-      - path: /app
+      - path: app.yannickeboo.com
         pathType: Prefix
         backend:
           service:
