@@ -14,5 +14,10 @@ https://github.com/devopstrainingschool/Jenkins-installation-steps
 ### When the developer pushes the code, jenkins will pull that code.
 ### Jenkins compile the code , and test it with Sonarqube, then build and push the docker image to the artifactory(docker hub).
 ## In order to archive this:
-#### - we need to identify the type of application. 
-#### - Build a Jenkinfile
+#### - we need to identify the type of application: Java Application , & maven compiler
+#### - Build a Jenkinfile: 
+https://github.com/devopstrainingschool/java-maven-app-project/blob/main/Jenkinsfile
+#### - Install git : yum install git -y
+#### - Go to Jenkins server, and create a pipeline Job.
+#### -
+
