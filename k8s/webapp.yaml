@@ -22,10 +22,4 @@ spec:
           env:
             - name: MONGO_URL
               value: mongodb://my-db-service:27017/dev
-          command: 
-          - /bin/bash
-          - -c 
-          - |
-            commandhere1
-            commandhere2
           imagePullPolicy: Always
