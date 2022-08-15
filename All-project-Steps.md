@@ -9,4 +9,8 @@
 #### - Download Jenkins binaries from Jenkins.io
 #### - Install and Start Jenkins
 https://github.com/devopstrainingschool/Jenkins-installation-steps
-## II- 
+
+## II- CI
+### When the developer pushes the code, jenkins will pull that code.
+### Jenkins compile the code , and test it with Sonarqube, then build and push the docker image to the artifactory(docker hub).
+###  
