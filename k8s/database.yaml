@@ -16,10 +16,10 @@ spec:
           image: mongo
           ports:
             - containerPort: 27017
-          volumeMounts:
-            - name: storage1
-              mountPath: /data/db
-      volumes:
-        - name: storage1
-          persistentVolumeClaim:
-            claimName: db-pvc
+       #   volumeMounts:
+      #      - name: storage1
+    #          mountPath: /data/db
+    #  volumes:
+     #   - name: storage1
+    #      persistentVolumeClaim:
+      #      claimName: db-pvc
