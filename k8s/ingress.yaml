@@ -10,8 +10,8 @@ spec:
   - host: yannickeboo.com
     http:
       paths:
-      - path: app.yannickeboo.com
-       # pathType: Prefix
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: my-app-service
