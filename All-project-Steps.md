@@ -18,6 +18,9 @@ https://github.com/devopstrainingschool/Jenkins-installation-steps
 #### - Build a Jenkinfile: 
 https://github.com/devopstrainingschool/java-maven-app-project/blob/main/Jenkinsfile
 #### - Install git : yum install git -y
+#### - Install Docker
+https://github.com/devopstrainingschool/docker-installation
 #### - Go to Jenkins server, and create a pipeline Job.
-#### -
+#### - Setup maven-yaya tool: 
+#### - Installing plugins: git , docker, maven
 
