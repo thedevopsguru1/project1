@@ -7,16 +7,6 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: app2.yannickeboo.com
-    http:
-      paths:
-      - path: /app2
-        pathType: Prefix
-        backend:
-          service:
-            name: my-service-app2
-            port:
-              number: 80
   - host: app.yannickeboo.com
     http:
       paths:
