@@ -49,4 +49,4 @@ chown jenkins:docker  /var/run/docker.sock
 
 ### then click on add webhook
 
-### To make that the webhook is working properly , let change something on the code repository
+### To make that the webhook is working properly , let change something on the code repository.
