@@ -23,4 +23,16 @@ https://github.com/devopstrainingschool/docker-installation
 #### - Go to Jenkins server, and create a pipeline Job.
 #### - Setup maven-yaya tool: 
 #### - Installing plugins: git , docker, maven
+#### - We run our pipeline to make sure that maven is working properly
+#### - Install Sonarqube Server
+https://github.com/devopstrainingschool/sonarqube-installation
+#### - Integrate Sonarqube with Jenkins
+https://github.com/devopstrainingschool/sonarqube-jenkins-integration
+##### - Go to Jenkins and Install sonarqube plugins
+##### - GO to Jenkinsfile and add Sonarqube stages
+##### - Run the Jenkins pipeline again
+##### - Add docker build and docker push in the Pipeline.
+##### - WE need to add docker hub (artifactory ) credentials
+##### - Run the Jen kins pipeline again
+
 
