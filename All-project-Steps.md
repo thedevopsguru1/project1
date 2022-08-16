@@ -41,6 +41,8 @@ chown jenkins:docker  /var/run/docker.sock
 ##### - Then re run the pipeline
 ## III- Webhook between Github and Jenkins
 ### 1- Go to the Jenkins Job (project1), then click on configure, then look for build triggers, finally click on " GitHub hook trigger for GITScm polling"
+![image](https://user-images.githubusercontent.com/107158398/184759813-e61d50e9-e077-4b80-a4ea-d91869772e35.png)
+
 ### 2- go Github , then click on the project repository, click on settings, click webhooks, then click on add a webhook
 ### payload = jenkins_url(ip address)/github-webhook/
 ![image](https://user-images.githubusercontent.com/107158398/184759249-b3f1f524-a272-417c-8487-bc0e0067c80c.png)
