@@ -45,6 +45,6 @@ chown jenkins:docker  /var/run/docker.sock
 ### payload = jenkins_url(ip address)/github-webhook/
 ![image](https://user-images.githubusercontent.com/107158398/184759249-b3f1f524-a272-417c-8487-bc0e0067c80c.png)
 
-
+### then click on add webhook
 
 
