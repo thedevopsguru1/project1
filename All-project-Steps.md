@@ -32,7 +32,19 @@ https://github.com/devopstrainingschool/sonarqube-jenkins-integration
 ##### - GO to Jenkinsfile and add Sonarqube stages
 ##### - Run the Jenkins pipeline again
 ##### - Add docker build and docker push in the Pipeline.
-##### - WE need to add docker hub (artifactory ) credentials
+##### - We need to add docker hub (artifactory ) credentials
 ##### - Run the Jen kins pipeline again
+##### - the pipeline may failed : run this command
+```
+chown jenkins:docker  /var/run/docker.sock
+```
+##### - Then re run the pipeline
+## III- Webhook between Github and Jenkins
+### 1- Go to the Jenkins Job (project1), then click on configure, then look for build triggers, finally click on " GitHub hook trigger for GITScm polling"
+### 2- go Github , then click on the project repository, click on settings, click webhooks, then click on add a webhook
+### payload = jenkins_url(ip address)/github-webhook/
+![image](https://user-images.githubusercontent.com/107158398/184759249-b3f1f524-a272-417c-8487-bc0e0067c80c.png)
+
+
 
 
