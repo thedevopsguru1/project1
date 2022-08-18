@@ -1,6 +1,6 @@
 
 
-# Vincent:
+# Vincent: ALL
 ## We have a project. 
 ###  1- developers will write the code ( java, nodejs, python , go , so on): java
 ### 2- if you have a Java application, you need to know the compiler(maven, gradle): maven
