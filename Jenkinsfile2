@@ -16,7 +16,7 @@ agent any
         sh 'mvn clean'
       }
     }
-    stage ('Maven package') {
+    stage ('Maven package code') {
       when {
        anyOf {
         changeset "src/**"
