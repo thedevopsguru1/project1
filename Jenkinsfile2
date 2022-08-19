@@ -27,7 +27,7 @@ agent any
         sh 'mvn package'
       }
     }
-    stage ('Sonarqube analysis and tesing'){
+    stage ('Sonarqube code analysis and tesing'){
       when {
        anyOf {
         changeset "src/**"
