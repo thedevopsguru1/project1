@@ -6,34 +6,19 @@ agent any
   stages {
     
     stage ('Maven Clean'){
-   #   when {
-   #    anyOf {
-   #     changeset "src/**"
-    #    changeset "Jenkinsfile**"
-   # }
-#}
+  
       steps{
         sh 'mvn clean'
       }
     }
     stage ('Maven package') {
-     # when {
-     #  anyOf {
-     #   changeset "src/**"
-     #   changeset "Jenkinsfile**"
-   # }
-#}
+    
       steps{
         sh 'mvn package'
       }
     }
     stage ('Sonarqube analysis and tesing'){
-    #  when {
-    #   anyOf {
-     #   changeset "src/**"
-    #    changeset "Jenkinsfile**"
-  #  }
-#}
+   
       steps{
         script{
           withSonarQubeEnv('sonarserver'){
@@ -42,13 +27,7 @@ agent any
         }
       }
     }    
-    stage ("Quality Gate") {
-    #  when {
-    #   anyOf {
-    #    changeset "src/**"
-     #   changeset "Jenkinsfile**"
-   # }
-# }
+    
       steps {
         script {
            timeout(time: 1, unit: 'HOURS') { 
@@ -61,12 +40,7 @@ agent any
       }
     }
     stage ('Docker build and push'){
-    #when {
-   #    anyOf {
-   #     changeset "src/**"
-   #     changeset "Jenkinsfile**"
-   # }
-# }
+   
            steps{
              withDockerRegistry([ credentialsId: "Docker_creds", url: "https://index.docker.io/v1/" ]){
                sh 'docker build -t devopstrainingschool/knote-jenkins:$BUILD_NUMBER . -f Dockerfile'
