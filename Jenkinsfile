@@ -4,6 +4,12 @@ agent any
     maven "maven-yaya"
   }
   stages {
+    when {
+       anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+}
     stage ('Maven Clean'){
       when {
        anyOf {
