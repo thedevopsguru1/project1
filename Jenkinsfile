@@ -6,19 +6,16 @@ agent any
   stages {
     
     stage ('Maven Clean'){
-  
       steps{
         sh 'mvn clean'
       }
     }
-    stage ('Maven package') {
-    
+    stage ('Maven package') { 
       steps{
         sh 'mvn package'
       }
     }
     stage ('Sonarqube analysis and tesing'){
-   
       steps{
         script{
           withSonarQubeEnv('sonarserver'){
@@ -27,7 +24,7 @@ agent any
         }
       }
     }    
-    
+   stage ("Quality Gate") {
       steps {
         script {
            timeout(time: 1, unit: 'HOURS') { 
