@@ -5,11 +5,23 @@ agent any
   }
   stages {
     stage ('Maven Clean'){
+      when {
+       anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+}
       steps{
         sh 'mvn clean'
       }
     }
     stage ('Maven package') {
+      when {
+       anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+}
       steps{
         sh 'mvn package'
       }
