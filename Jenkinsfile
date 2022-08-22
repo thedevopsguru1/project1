@@ -68,13 +68,16 @@ agent any
             steps {
                 script{
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    
+                     sh """
+                    git config --global user.name "vikram"
+                    git config --global user.email "vikram@gmail.com" """
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       dir('k8s-all-p1'){
                         sh "pwd"
-                        sh "git config --global user.name "devopstrainingschool" "
-                        sh " git config --global user.email "yannickeboo@gmail.com" "
+                       
                         sh " git add . "
-                        sh " git commit -am "jdjd" "
+                        sh " git commit -m 'Updated the deployment file'"
                        
              
                       }
