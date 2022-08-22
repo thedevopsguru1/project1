@@ -70,8 +70,8 @@ agent any
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     
                      sh """
-                    git config --global user.name "vikram"
-                    git config --global user.email "vikram@gmail.com" """
+                    git config --global user.name "devopstrainingschool"
+                    git config --global user.email "devopstrainingschool@gmail.com" """
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       dir('k8s-all-p1'){
                         sh "pwd"
