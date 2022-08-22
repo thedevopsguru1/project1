@@ -54,7 +54,13 @@ agent any
                 branch: 'master'
             }
         }
-
+stage('Updating Kubernetes deployment file'){
+            steps {
+                sh "cat k8s-all-p1/k8s/webapp.yaml"
+                sh "sed -i 's/devopstrainingschool/knote*/devopstrainingschool/knote-jenkins:$BUILD_NUMBER/g' webapp.yaml"
+                sh "cat k8s-all-p1/k8s/webapp.yaml"
+            }
+        }
     
     
     
