@@ -47,18 +47,12 @@ agent any
     }
     
    
-    stage('Checkout SCM'){
-            steps {
-                git credentialsId: 'github', 
-                url: 'https://github.com/devopstrainingschool/k8s-all-p1.git',
-                branch: 'master'
-            }
-        }
 stage('Updating Kubernetes deployment file'){
             steps {
-                sh "cat k8s-all-p1/k8s/webapp.yaml"
-                sh "sed -i 's/devopstrainingschool/knote*/devopstrainingschool/knote-jenkins:$BUILD_NUMBER/g' webapp.yaml"
-                sh "cat k8s-all-p1/k8s/webapp.yaml"
+              sh "git clone https://github.com/devopstrainingschool/k8s-all-p1.git"
+              sh "cat k8s-all-p1/k8s/webapp.yaml"
+              sh "sed -i 's/devopstrainingschool/knote*/devopstrainingschool/knote-jenkins:$BUILD_NUMBER/g' webapp.yaml"
+              sh "cat k8s-all-p1/k8s/webapp.yaml"
             }
         }
     
