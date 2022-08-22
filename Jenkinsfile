@@ -71,6 +71,8 @@ agent any
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       dir('k8s-all-p1'){
                         sh "pwd"
+                        sh "git config --global user.name "devopstrainingschool" "
+                        sh " git config --global user.email "yannickeboo@gmail.com" "
                         sh " git add . "
                         sh " git commit -m "jdjd" "
                        
