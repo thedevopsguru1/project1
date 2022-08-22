@@ -42,6 +42,7 @@ agent any
              withDockerRegistry([ credentialsId: "Docker_creds", url: "https://index.docker.io/v1/" ]){
                sh 'docker build -t devopstrainingschool/knote-jenkins:$BUILD_NUMBER . -f Dockerfile'
                sh 'docker push devopstrainingschool/knote-jenkins:$BUILD_NUMBER'
+               sh 'rm -rf k8s-all-p1'
              }
            }
     }
@@ -53,6 +54,7 @@ stage('Updating Kubernetes deployment file'){
               sh "cat k8s-all-p1/k8s/webapp.yaml"
               sh "sed -i 's/devopstrainingschool/knote* /devopstrainingschool/knote-jenkins:$BUILD_NUMBER/g' webapp.yaml"
               sh "cat k8s-all-p1/k8s/webapp.yaml"
+           
             }
         }
     
