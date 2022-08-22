@@ -52,7 +52,7 @@ agent any
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh """
-                    sh "git clone https://github.com/devtopstrainingschool/k8s-all-p1.git"
+                    sh "git clone git@github.com:devopstrainingschool/k8s-all-p1.git"
                     sh "sed -i 's+devopstrainingschool/knote*+devopstrainingschool/knote-jenkins:$BUILD_NUMBER+g' k8s-all-p1/webapp.yaml"
                     git config --global user.name "yannick"
                     git config --global user.email "yannickeboo@gmail.com"
