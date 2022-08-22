@@ -78,7 +78,7 @@ agent any
                        
                         sh " git add . "
                         sh " git commit -m 'Updated the deployment file'"
-                        sh " git push "
+                        sh "git push http://$GIT_USERNAME:$GIT_PASSWORD@github.com/devopstrainingschool/k8s-all-p1.git master"
              
                       }
              
