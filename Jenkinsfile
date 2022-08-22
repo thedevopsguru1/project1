@@ -74,7 +74,7 @@ agent any
                         sh "git config --global user.name "devopstrainingschool" "
                         sh " git config --global user.email "yannickeboo@gmail.com" "
                         sh " git add . "
-                        sh " git commit -m "jdjd" "
+                        sh " git commit -am "jdjd" "
                        
              
                       }
