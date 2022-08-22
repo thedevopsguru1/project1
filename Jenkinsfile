@@ -71,8 +71,8 @@ agent any
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       dir('k8s-all-p1'){
                         sh "pwd"
-                        sh " git add ."
-                        sh " git commit -m "jdjd""
+                        sh " git add . "
+                        sh " git commit -m "jdjd" "
                        
              
                       }
