@@ -48,7 +48,7 @@ agent any
     }
     
    
- stage('Push the changed deployment file to Git'){
+ stage('Github version changed'){
             steps {
                 script{
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -64,7 +64,21 @@ agent any
                 }
             }
         }
-    
+  stage('Push the changes'){
+            steps {
+                script{
+                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                      dir('k8s-all-p1'){
+                        sh "pwd"
+             
+                      }
+             
+                    }
+                  }
+                }
+            }
+        }
     
     
     
