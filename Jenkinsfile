@@ -57,6 +57,13 @@ agent any
               sh "cat k8s-all-p1/k8s/webapp.yaml"
               sh "sed -i 's|devopstrainingschool/knote-jenkins:*|/devopstrainingschool/knote-jenkins:${BUILD_NUMBER}|g'  k8s-all-p1/k8s/webapp.yaml"
               sh "cat k8s-all-p1/k8s/webapp.yaml"
+              sh "git config --global user.name "yannick""
+              sh "git config --global user.email "yannickeboo@gmail.com""
+              dir("k8s-all-p1") {
+                    sh "git add ."
+                    sh "git commit -m "hsh""
+                    Sh "git push" 
+                    }
                     }
                   }
                 }
