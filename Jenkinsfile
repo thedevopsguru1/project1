@@ -48,13 +48,18 @@ agent any
     }
     
    
-stage('Updating Kubernetes deployment file'){
+ stage('Push the changed deployment file to Git'){
             steps {
+                script{
+                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
               sh "git clone https://github.com/devopstrainingschool/k8s-all-p1.git"
               sh "cat k8s-all-p1/k8s/webapp.yaml"
               sh "sed -i 's|devopstrainingschool/knote-jenkins:*|/devopstrainingschool/knote-jenkins:${BUILD_NUMBER}|g'  k8s-all-p1/k8s/webapp.yaml"
               sh "cat k8s-all-p1/k8s/webapp.yaml"
-           
+                    }
+                  }
+                }
             }
         }
     
