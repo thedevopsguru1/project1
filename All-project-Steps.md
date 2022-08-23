@@ -58,4 +58,6 @@ https://github.com/devopstrainingschool/Connecting-to-kubernetes-cluster
 ### Install Kubectl by following these steps:
 https://github.com/devopstrainingschool/kubernetes-kops-installation
 ### Make sure that you have git installed
+
 ## II- Create a new repository for the yaml files"
+### 1-Create a repository named k8s
