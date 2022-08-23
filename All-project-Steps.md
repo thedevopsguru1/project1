@@ -60,4 +60,6 @@ https://github.com/devopstrainingschool/kubernetes-kops-installation
 ### Make sure that you have git installed
 
 ## II- Create a new repository for the yaml files"
-### 1-Create a repository named k8s
+### 1-Create a repository named k8s-project1
+### For each teamplate, create a yaml file and copy and paste the proper configuration
+
