@@ -50,3 +50,12 @@ chown jenkins:docker  /var/run/docker.sock
 ### then click on add webhook
 
 ### To make that the webhook is working properly , let change something on the code repository that contains jenkinsfile , and see how Jenkins server will detect it and run the pipeline automatically.
+# CD part:
+## I- Access to a kubernetes cluster
+### To connect to a remote cluster, we need to install kubeconfig.
+### Follow these steps to setup kubeconfig for the first time( Only the first):
+https://github.com/devopstrainingschool/Connecting-to-kubernetes-cluster
+### Install Kubectl by following these steps:
+https://github.com/devopstrainingschool/kubernetes-kops-installation
+### Make sure that you have git installed
+## II- Create a new repository for the yaml files"
