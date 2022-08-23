@@ -54,9 +54,7 @@ agent any
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
               sh "git clone https://github.com/devopstrainingschool/k8s-all-p1.git"
-              sh "cat k8s-all-p1/k8s/webapp.yaml"
-              sh "sed -i 's|devopstrainingschool/knote-jenkins:*|/devopstrainingschool/knote-jenkins:${BUILD_NUMBER}|g'  k8s-all-p1/k8s/webapp.yaml"
-              sh "cat k8s-all-p1/k8s/webapp.yaml"
+              
             
              
                     }
@@ -75,7 +73,9 @@ agent any
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       dir('k8s-all-p1'){
                         sh "pwd"
-                       
+                        sh "cat k8s-all-p1/k8s/webapp.yaml"
+                        sh "sed -i 's/knote-jenkins:*/knote-jenkins:$BUILD_NUMBER/g'  k8s-all-p1/k8s/webapp.yaml"
+                        sh "cat k8s-all-p1/k8s/webapp.yaml"
                         sh " git add . "
                         sh " git commit -m 'Updated the deployment file'"
                         sh "git push http://$GIT_USERNAME:$GIT_PASSWORD@github.com/devopstrainingschool/k8s-all-p1.git master"
