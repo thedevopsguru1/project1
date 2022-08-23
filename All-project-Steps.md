@@ -62,4 +62,18 @@ https://github.com/devopstrainingschool/kubernetes-kops-installation
 ## II- Create a new repository for the yaml files"
 ### 1-Create a repository named k8s-project1
 ### For each teamplate, create a yaml file and copy and paste the proper configuration
+https://github.com/devopstrainingschool/kubernetes-yaml-files-template
+### Clone the repository locally
+### RRun the command as follow:
+```
+kubectl apply -f pathtothe yamlfiles
+```
+#### for example
+```
+kubectl apply -f k8s-project1
+```
+### To delete the deployment, please run the same command but remove apply and put delete
+```
+kubectl delete -f k8s-project1
+```
 
