@@ -3,6 +3,11 @@ agent any
   tools {
     maven "maven-yaya"
   }
+  environment {
+        
+        IMAGE_TAG = "${BUILD_NUMBER}"
+   
+        }
   stages {
     
     stage ('Maven Clean app'){
@@ -75,7 +80,7 @@ agent any
                         sh "pwd"
                         sh "echo $BUILD_NUMBER"
                         sh "cat k8s/webapp.yaml"
-                        sh "sed -i -e 's+knote-jenkins:*+knote-jenkins:${env.BUILD_NUMBER}+g'  k8s/webapp.yaml"
+                        sh "sed -i -e 's+knote-jenkins.*+knote-jenkins:${env.BUILD_NUMBER}+g'  k8s/webapp.yaml"
                         sh "cat k8s/webapp.yaml"
                         sh " git add . "
                         sh " git commit -m 'Updated the deployment file'"
