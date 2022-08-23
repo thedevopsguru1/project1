@@ -76,4 +76,8 @@ kubectl apply -f k8s-project1
 ```
 kubectl delete -f k8s-project1
 ```
+### The issue with this is that we are deploying manually.
+### to fix this we will install argo CD in our cluster.
+https://github.com/devopstrainingschool/Argo-CD-Installation
+### Follow the steps of the video to install application using Argo CD
 
