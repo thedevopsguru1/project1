@@ -48,7 +48,7 @@ agent any
     }
     
    
- stage('Github version changed'){
+ stage('Github clone the k8s-yaml'){
             steps {
                 script{
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -62,7 +62,7 @@ agent any
                 }
             }
         }
-  stage('Push the changes'){
+  stage('Make yamlf files changes & push them'){
             steps {
                 script{
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
