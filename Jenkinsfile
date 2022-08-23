@@ -75,7 +75,7 @@ agent any
                         sh "pwd"
                         sh "echo $BUILD_NUMBER"
                         sh "cat k8s/webapp.yaml"
-                        sh "sed -i -e 's/knote-jenkins:${BUILD_NUMBER}-1/knote-jenkins:$BUILD_NUMBER/g'  k8s/webapp.yaml"
+                        sh "sed -i -e 's/knote-jenkins*/knote-jenkins:$BUILD_NUMBER/g'  k8s/webapp.yaml"
                         sh "cat k8s/webapp.yaml"
                         sh " git add . "
                         sh " git commit -m 'Updated the deployment file'"
