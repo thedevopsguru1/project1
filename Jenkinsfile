@@ -10,7 +10,7 @@ agent any
         }
   stages {
     
-    stage ('Maven Clean app'){
+    stage ('Maven Clean'){
       steps{
         sh 'mvn clean'
       }
@@ -67,7 +67,7 @@ agent any
                 }
             }
         }
-  stage('Make yamlf files changes & push them'){
+  stage('Make yaml files changes & push them to Guthub'){
             steps {
                 script{
                   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
