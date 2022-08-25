@@ -29,7 +29,7 @@ agent any
         }
       }
     }    
-   stage ("Quality Gate") {
+   stage ("Quality Gate Check") {
       steps {
         script {
            timeout(time: 1, unit: 'HOURS') { 
