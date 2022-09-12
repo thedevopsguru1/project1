@@ -44,7 +44,7 @@ agent any
     stage ('Docker build and push'){
    
            steps{
-             withDockerRegistry([ credentialsId: "Docker_creds", url: "https://index.docker.io/v1/" ]){
+             withDockerRegistry([ credentialsId: "Docker_creds", url: "" ]){
                sh 'docker build -t devopstrainingschool/knote-jenkins:$BUILD_NUMBER . -f Dockerfile'
                sh 'docker push devopstrainingschool/knote-jenkins:$BUILD_NUMBER'
                sh 'rm -rf k8s-all-p1'
