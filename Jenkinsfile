@@ -20,7 +20,7 @@ agent any
         sh 'mvn package'
       }
     }
-    stage ('Sonarqube analysis and testing'){
+    stage ('Sonarqube analysis and testing app'){
       steps{
         script{
           withSonarQubeEnv('sonarserver'){
