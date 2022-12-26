@@ -1,0 +1,52 @@
+pipeline {
+agent any
+  tools {
+    maven "maven-yaya"
+  }
+  stages {
+    
+    stage ('Maven Clean'){
+      when {
+       anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+    }
+      steps{
+        sh 'mvn clean'
+      }
+    }
+    stage ('Maven package code') {
+      when {
+       anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+}
+      steps{
+        sh 'mvn package'
+      }
+    }
+    
+    stage ('Docker build and push'){
+    when {
+      anyOf {
+        changeset "src/**"
+        changeset "Jenkinsfile**"
+    }
+    }
+           steps{
+           
+               sh 'docker build -t devopstrainingschool/knote-jenkins:$BUILD_NUMBER . -f Dockerfile'
+             
+           }
+    }
+    
+    
+    
+    
+    
+    
+    
+  }
+}
