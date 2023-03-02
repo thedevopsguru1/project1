@@ -8,6 +8,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
  # ingressClassName: nginx
+  tls:
+  - hosts:
+    - test.anaeleboo.com
+    secretName: example-tls2
   rules:
   - host: test.anaeleboo.com
     http:
