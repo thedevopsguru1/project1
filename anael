@@ -19,7 +19,7 @@ pipeline {
     }
     
     stage ('Docker build and push'){
-           agent {  docker {docker:dind}
+           agent {  docker { image 'docker:dind' }
 
 }
      
