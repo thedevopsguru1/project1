@@ -68,9 +68,7 @@ spec:
     }
     
     stage ('Docker build and push'){
-           agent {  docker { image 'docker:dind' }
-
-}
+       
      
            steps{
            
