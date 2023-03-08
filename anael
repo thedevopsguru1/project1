@@ -19,6 +19,9 @@ pipeline {
     }
     
     stage ('Docker build and push'){
+           agent {  docker {docker:dind}
+
+}
      
            steps{
            
