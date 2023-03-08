@@ -1,0 +1,37 @@
+pipeline {
+ agent any
+  tools {
+    maven "maven"
+  }
+  stages {
+    
+    stage ('Maven Clean'){
+      
+      steps{
+        sh 'mvn clean'
+      }
+    }
+    stage ('Maven package code') {
+       
+      steps{
+        sh 'mvn package'
+      }
+    }
+    
+    stage ('Docker build and push'){
+     
+           steps{
+           
+               sh 'docker build -t devopstrainingschool/knote-jenkins:$BUILD_NUMBER . -f Dockerfile'
+             
+           }
+    }
+    
+    
+    
+    
+    
+    
+    
+  }
+}
