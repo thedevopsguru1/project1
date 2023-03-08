@@ -1,7 +1,33 @@
 pipeline {
- agent { kubernetes { //cloud ‘kubernetes’ defaultContainer ‘kaniko’ yaml “”” kind: Pod spec: serviceAccountName: jenkins-sa containers: — name: kaniko image: gcr.io/kaniko-project/executor:debug-539ddefcae3fd6b411a95982a830d987f4214251 imagePullPolicy: Always command: — sleep args: — 9999999 “”” }
- 
- }
+   agent {
+    kubernetes {
+      label 'spring-petclinic-demo'
+      defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+labels:
+  component: ci
+spec:
+  # Use service account that can deploy to all namespaces
+  serviceAccountName: cd-jenkins
+  containers:
+  - name: maven
+    image: maven:latest
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+      - mountPath: "/root/.m2"
+        name: m2
+  volumes:
+    - name: m2
+      persistentVolumeClaim:
+        claimName: m2
+"""
+}
+   }
   tools {
     maven "maven"
   }
