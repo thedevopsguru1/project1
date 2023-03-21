@@ -28,14 +28,7 @@ spec:
     }
   }
 
-  tools {
-    maven "project1"
-  }
-  environment {
-        
-        IMAGE_TAG = "${BUILD_NUMBER}"
-   
-        }
+ 
   stages {
     
     stage ('Maven Clean'){
