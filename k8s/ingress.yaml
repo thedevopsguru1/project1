@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: app.dts-projects.cloud
+  - host: app.anaeleboo.com
     http:
       paths:
       - path: /
