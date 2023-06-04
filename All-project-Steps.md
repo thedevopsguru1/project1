@@ -1,5 +1,5 @@
 
-# What do you need to automate CI and CD an application?
+# What do you need to automate CI and CD application?
 ## I- Installing jenkins:
 ### After testing the code locally , the second thing to do is to setup your Jenkins pipeline.
 ### 1- Setup Jenkins pipeline:
