@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-pvc
 spec:
+  storageClassName: eboo
   accessModes:
     - ReadWriteOnce
   resources:
