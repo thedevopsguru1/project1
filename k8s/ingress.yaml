@@ -23,5 +23,5 @@ spec:
   tls:
   - hosts:
     - app.anaeleboo.com
-    secretName: app-secret
+    secretName: app-secret2
   
