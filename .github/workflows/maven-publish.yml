@@ -1,34 +1,71 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Maven Package
+name: Java CI with Maven 
 
 on:
-  release:
-    types: [created]
-
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+env: 
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up JDK 11
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+        distribution: 'adopt'
+        cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - run: mkdir artifacts && cp target/*.jar artifacts
+    - uses: actions/upload-artifact@v2
+      with:
+        name: yannick.jar
+        path: artifacts
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Download artifact
+      uses: actions/download-artifact@v2
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: yannickeboo/test2:${{github.run_number}}
+    - name: Login to Github
+      uses: docker/login-action@v1
+      with:
+        username: ${{ github.actor }}
+        registry: ${{ env.REGISTRY }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Download artifact2
+      uses: actions/download-artifact@v2
+
+    - name: Build and push to github
+      id: docker_build2
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+    - name: Build and push to github2
+      id: docker_build3
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}/yannick:v2
